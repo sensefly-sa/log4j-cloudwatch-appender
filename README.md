@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/sensefly-sa/log4j-cloudwatch-appender.svg?branch=master)](https://travis-ci.org/sensefly-sa/log4j-cloudwatch-appender)
 [![codecov](https://codecov.io/gh/sensefly-sa/log4j-cloudwatch-appender/branch/master/graph/badge.svg)](https://codecov.io/gh/sensefly-sa/log4j-cloudwatch-appender)
-[ ![Download](https://api.bintray.com/packages/sensefly/maven/log4j-cloudwatch-appender/images/download.svg) ](https://bintray.com/sensefly/maven/log4j-cloudwatch-appender/_latestVersion)
+[![Download](https://api.bintray.com/packages/sensefly/maven/log4j-cloudwatch-appender/images/download.svg) ](https://bintray.com/sensefly/maven/log4j-cloudwatch-appender/_latestVersion)
 
 
 Sends logs to specified `logGroupName`.   

@@ -1,3 +1,7 @@
+plugins {
+  id "com.jfrog.bintray" version "1.7.3"
+}
+
 group = "io.sensefly.logging.log4j"
 description = "Log4j 2.x appender for AWS CloudWatch logs"
 
@@ -18,6 +22,20 @@ repositories {
   jcenter()
 }
 
+bintray {
+  user = System.env.BINTRAY_USER
+  key = System.env.BINTRAY_API_KEY
+  pkg {
+    repo = 'maven'
+    name = 'log4j-cloudwatch-appender'
+    userOrg = 'sensefly'
+    vcsUrl = 'https://github.com/sensefly-sa/log4j-cloudwatch-appender.git'
+  }
+  version {
+    name = version
+    released  = new Date()
+  }
+}
 
 dependencies {
   compile "org.apache.logging.log4j:log4j-core:2.8.2"
@@ -44,9 +62,7 @@ jacocoTestReport {
     html.enabled = false
   }
 }
-
 check.dependsOn jacocoTestReport
-
 
 publishing {
   publications {
