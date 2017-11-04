@@ -1,0 +1,60 @@
+group = "io.sensefly.logging.log4j"
+description = "Log4j 2.x appender for AWS CloudWatch logs"
+
+apply plugin: "java"
+apply plugin: "jacoco"
+apply plugin: "idea"
+apply plugin: "maven"
+apply plugin: "maven-publish"
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+tasks.withType(JavaCompile) {
+  options.encoding = "UTF-8"
+}
+
+repositories {
+  jcenter()
+}
+
+
+dependencies {
+  compile "org.apache.logging.log4j:log4j-core:2.8.2"
+  compile "com.amazonaws:aws-java-sdk-logs:1.11.161"
+
+  testCompile "junit:junit:4.12"
+  testCompile "org.assertj:assertj-core:3.8.0"
+  testCompile "org.mockito:mockito-core:2.8.47"
+}
+
+jacoco {
+  toolVersion = "0.7.9"
+}
+
+// package source jar
+task sourcesJar(type: Jar, dependsOn: classes) {
+  classifier = "sources"
+  from sourceSets.main.allSource
+}
+
+jacocoTestReport {
+  reports {
+    xml.enabled = true
+    html.enabled = false
+  }
+}
+
+check.dependsOn jacocoTestReport
+
+
+publishing {
+  publications {
+    mavenJava(MavenPublication) {
+      from components.java
+      artifact(sourcesJar) {
+        classifier = "sources"
+      }
+    }
+  }
+}
