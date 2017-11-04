@@ -2,9 +2,13 @@ plugins {
   id "com.jfrog.bintray" version "1.7.3"
 }
 
+ext {
+  artifactId = "log4j-cloudwatch-appender"
+}
+
 group = "io.sensefly.logging.log4j"
+version =  "0.0.1"
 description = "Log4j 2.x appender for AWS CloudWatch logs"
-version = "0.0.1"
 
 apply plugin: "java"
 apply plugin: "jacoco"
@@ -23,21 +27,6 @@ repositories {
   jcenter()
 }
 
-bintray {
-  user = System.env.BINTRAY_USER
-  key = System.env.BINTRAY_API_KEY
-  pkg {
-    repo = 'maven'
-    name = 'log4j-cloudwatch-appender'
-    userOrg = 'sensefly'
-    vcsUrl = 'https://github.com/sensefly-sa/log4j-cloudwatch-appender.git'
-  }
-  version {
-    name = "0.0.1"
-    released  = new Date()
-  }
-}
-
 dependencies {
   compile "org.apache.logging.log4j:log4j-core:2.8.2"
   compile "com.amazonaws:aws-java-sdk-logs:1.11.161"
@@ -51,12 +40,6 @@ jacoco {
   toolVersion = "0.7.9"
 }
 
-// package source jar
-task sourcesJar(type: Jar, dependsOn: classes) {
-  classifier = "sources"
-  from sourceSets.main.allSource
-}
-
 jacocoTestReport {
   reports {
     xml.enabled = true
@@ -65,13 +48,39 @@ jacocoTestReport {
 }
 check.dependsOn jacocoTestReport
 
+// package source jar
+task sourcesJar(type: Jar, dependsOn: classes) {
+  classifier = "sources"
+  from sourceSets.main.allSource
+}
+
 publishing {
   publications {
-    mavenJava(MavenPublication) {
+    BintrayPublication(MavenPublication) {
       from components.java
       artifact(sourcesJar) {
         classifier = "sources"
+        groupId project.group
+        artifactId project.artifactId
+        version  project.version
       }
+    }
+  }
+}
+
+bintray {
+  user = System.env.BINTRAY_USER
+  key = System.env.BINTRAY_API_KEY
+  publications = ['BintrayPublication']
+  publish = true
+  pkg {
+    repo = 'maven'
+    name = project.artifactId
+    userOrg = 'sensefly'
+    vcsUrl = 'https://github.com/sensefly-sa/log4j-cloudwatch-appender.git'
+    version {
+      name = project.version
+      released  = new Date()
     }
   }
 }
