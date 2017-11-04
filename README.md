@@ -5,7 +5,8 @@
 
 
 Sends logs to specified `logGroupName`.   
-Creates log streams with optional `logStreamNamePrefix` and year/month. Log stream is created only on app startup... so a long running app won't create log stream for every months. 
+Creates log streams with optional `logStreamNamePrefix` and year/month. 
+Log stream is created only on app startup... so a long running app won't create log stream for every months. 
 
 
 ## Build
