@@ -9,13 +9,6 @@ Sends logs to specified `logGroupName`.
 Creates log streams with optional `logStreamNamePrefix` and year/month. 
 Log stream is created only on app startup... so a long running app won't create log stream for every months. 
 
-
-## Build
-
-```
-./gradlew clean test
-```
-
 ## log4j2.xml example
 
 ```xml
@@ -53,5 +46,21 @@ Log stream is created only on app startup... so a long running app won't create 
 
 </Configuration>
 
+```
+
+## AWS credentials
+
+AWS credentials are read using [DefaultAWSCredentialsProviderChain](http://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/auth/DefaultAWSCredentialsProviderChain.html):
+* Environment Variables: `AWS_ACCESS_KEY`, `AWS_SECRET_KEY` and `AWS_REGION`
+* Java System Properties: `aws.accessKeyId` and `aws.secretKey`
+* Credential profiles file at the default location (`~/.aws/credentials`) shared by all AWS SDKs and the AWS CLI
+* Credentials delivered through the Amazon EC2 container service if `AWS_CONTAINER_CREDENTIALS_RELATIVE_URI` environment 
+variable is set and security manager has permission to access the variable
+* Instance profile credentials delivered through the Amazon EC2 metadata service
+
+## Build
+
+```
+./gradlew clean build
 ```
 
