@@ -6,8 +6,7 @@
 
 
 Sends logs to specified `logGroupName`.   
-Creates log streams with optional `logStreamNamePrefix` and year/month. 
-Log stream is created only on app startup... so a long running app won't create log stream for every months. 
+Creates log streams with optional `logStreamNamePrefix` and year/month. Every month a new log stream will be created. 
 
 ## log4j2.xml example
 
