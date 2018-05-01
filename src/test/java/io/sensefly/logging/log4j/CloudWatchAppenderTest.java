@@ -29,7 +29,7 @@ public class CloudWatchAppenderTest {
 
   @Test
   @SuppressWarnings({ "rawtypes", "unchecked" })
-  public void testLogger() throws InterruptedException {
+  public void testLogger() {
 
     Layout layout = PatternLayout.newBuilder().withPattern(SIMPLE_CONVERSION_PATTERN).build();
     CloudWatchAppender appender = new CloudWatchAppender("test-appender", 1, 128, layout, cloudWatchLogService);
