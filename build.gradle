@@ -1,5 +1,6 @@
 plugins {
-  id "com.jfrog.bintray" version "1.7.3"
+  id "com.jfrog.bintray" version "1.8.4"
+  id "com.github.ben-manes.versions" version "0.20.0"
 }
 
 group = "io.sensefly.logging.log4j"
@@ -23,16 +24,17 @@ repositories {
 }
 
 dependencies {
-  compile "org.apache.logging.log4j:log4j-core:2.9.1"
-  compile "com.amazonaws:aws-java-sdk-logs:1.11.224"
+  compile "org.apache.logging.log4j:log4j-core:2.11.0"
+  compile "com.amazonaws:aws-java-sdk-core:1.11.362"
+  compile "com.amazonaws:aws-java-sdk-logs:1.11.362"
 
   testCompile "junit:junit:4.12"
-  testCompile "org.assertj:assertj-core:3.8.0"
-  testCompile "org.mockito:mockito-core:2.11.0"
+  testCompile "org.assertj:assertj-core:3.10.0"
+  testCompile "org.mockito:mockito-core:2.19.0"
 }
 
 jacoco {
-  toolVersion = "0.7.9"
+  toolVersion = "0.8.1"
 }
 
 jacocoTestReport {
