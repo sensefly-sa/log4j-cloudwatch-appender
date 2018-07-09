@@ -7,9 +7,6 @@ addons:
 
 script: ./gradlew check sonarqube
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
 deploy:
   provider: script
   script:

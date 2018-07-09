@@ -1,7 +1,7 @@
 # Log4j 2.x appender for AWS CloudWatch logs
 
 [![Build Status](https://travis-ci.org/sensefly-sa/log4j-cloudwatch-appender.svg?branch=master)](https://travis-ci.org/sensefly-sa/log4j-cloudwatch-appender)
-[![codecov](https://codecov.io/gh/sensefly-sa/log4j-cloudwatch-appender/branch/master/graph/badge.svg)](https://codecov.io/gh/sensefly-sa/log4j-cloudwatch-appender)
+[![SonarQube](https://sonarcloud.io/api/project_badges/measure?project=io.sensefly.logging.log4j%3Alog4j-cloudwatch-appender&metric=coverage)](https://sonarcloud.io/dashboard?id=io.sensefly.logging.log4j%3Alog4j-cloudwatch-appender)
 [![Download](https://api.bintray.com/packages/sensefly/maven/log4j-cloudwatch-appender/images/download.svg) ](https://bintray.com/sensefly/maven/log4j-cloudwatch-appender/_latestVersion)
 
 
