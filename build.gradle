@@ -1,6 +1,7 @@
 plugins {
   id "com.jfrog.bintray" version "1.8.4"
   id "com.github.ben-manes.versions" version "0.20.0"
+  id "org.sonarqube" version "2.6.2"
 }
 
 group = "io.sensefly.logging.log4j"
