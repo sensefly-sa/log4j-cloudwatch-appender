@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "io.sensefly.logging.log4j"
-version =  "1.2.0-SNAPSHOT"
+version =  "1.1.1"
 description = "Log4j 2.x appender for AWS CloudWatch logs"
 
 apply plugin: "java"
